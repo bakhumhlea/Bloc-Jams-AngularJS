@@ -13,14 +13,11 @@
     vertical-align: middle;
 }
 
-.player-bar a {
+.player-bar a,
+.player-bar a:hover {
     color: white;
     cursor: pointer;
     text-decoration: none;
-    opacity: 0.7;
-}
-.player-bar a:hover {
-  opacity: 1.0;
 }
 
 .player-bar .container {
@@ -33,9 +30,6 @@
 .player-bar .control-group {
     display: table-cell;
     vertical-align: middle;
-}
-.play-pause .ion-play:hover {
-  opacity: 1.0;
 }
 
 /* === MAIN CONTROLS === */
@@ -54,6 +48,7 @@
     margin-right: 15%;
     font-size: 1.6rem;
 }
+
 /* === CURRENTLY PLAYING === */
 
 .player-bar .currently-playing {
