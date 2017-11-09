@@ -5,7 +5,7 @@
          var albumElectronic = {
             title: 'Electronic Retro Sound',
             artist: 'Roosevelt and Friends',
-            label: 'my Playlist 1',
+            label: 'my Playlist-01',
             year: '2017',
             albumArtUrl: '/assets/images/album_covers/01.png',
             songs: [
@@ -19,7 +19,7 @@
          var albumAlternative = {
             title: 'Alternative Rock',
             artist: 'Lucus Nord and Friends',
-            label: 'my Playlist 2',
+            label: 'my Playlist-02',
             year: '2017',
             albumArtUrl: '/assets/images/album_covers/20.png',
             songs: [
@@ -36,7 +36,7 @@
          Fixtures.getCollection = function(numberOfAlbum) {
            arrayOfAlbum = [];
            for (var i=0;i<numberOfAlbum;i++) {
-             arrayOfAlbum.push(albumElectronic);
+             arrayOfAlbum.push(albumAlternative);
            }
            return arrayOfAlbum;
          };
