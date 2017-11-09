@@ -1,12 +1,9 @@
  (function() {
-      function CollectionCtrl() {
-        this.albums = [];
-        for (var i=0; i < 12; i++) {
-          this.albums.push(angular.copy(albumElectronic));
-        }
+      function CollectionCtrl(Fixtures) {
+        this.albums = Fixtures.getCollection(4);
       }
 
       angular
           .module('blocJams')
-          .controller('CollectionCtrl', CollectionCtrl);
+          .controller('CollectionCtrl', ['Fixtures',CollectionCtrl]);
   })();

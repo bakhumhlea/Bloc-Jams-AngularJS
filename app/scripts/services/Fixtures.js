@@ -3,8 +3,8 @@
          var Fixtures = {};
 
          var albumElectronic = {
-            title: 'Electronic/Retro Sound',
-            artist: 'Roosevelt/Parcels/Breakbot/Daft Punk',
+            title: 'Electronic Retro Sound',
+            artist: 'Roosevelt and Friends',
             label: 'my Playlist 1',
             year: '2017',
             albumArtUrl: '/assets/images/album_covers/01.png',
@@ -18,7 +18,7 @@
 
          var albumAlternative = {
             title: 'Alternative Rock',
-            artist: 'Lucus Nord/TDCC/Tahiti80/Justice',
+            artist: 'Lucus Nord and Friends',
             label: 'my Playlist 2',
             year: '2017',
             albumArtUrl: '/assets/images/album_covers/20.png',
@@ -32,6 +32,13 @@
 
          Fixtures.getAlbum = function() {
            return albumElectronic;
+         };
+         Fixtures.getCollection = function(numberOfAlbum) {
+           arrayOfAlbum = [];
+           for (var i=0;i<numberOfAlbum;i++) {
+             arrayOfAlbum.push(albumElectronic);
+           }
+           return arrayOfAlbum;
          };
          return Fixtures;
      }
