@@ -1,8 +1,13 @@
 (function() {
-     function SongPlayer() {
+     function SongPlayer(Fixtures) {
           var SongPlayer = {};
 
-          var currentSong = null;
+          /**
+          * @desc Album's songs information
+          * @type {Object}
+          */
+          var currentAlbum = Fixtures.getAlbum();
+
           /**
           * @desc Buzz object audio file
           * @type {Object}
@@ -21,7 +26,7 @@
              */
              if (currentBuzzObject) {
                  currentBuzzObject.stop();
-                 currentSong.playing = null;
+                 SongPlayer.currentSong.playing = null;
              }
              /**
              * @desc set an instsnce of currentBuzzObject by using buzz library call audio file url
@@ -31,7 +36,7 @@
              });
              /** @desc set the "value(?)" of currentSong var equal to "song(which is clicked)(?)"
              */
-             currentSong = song;
+             SongPlayer.currentSong = song;
           };
 
           /**
@@ -40,37 +45,71 @@
           * @param {Object} song
           */
           var playSong = function(song) {
-            if (currentBuzzObject.isPaused()) {
+            if (!currentBuzzObject) {
+              return;
+            } else if (currentBuzzObject.isPaused()) {
               currentBuzzObject.play();
               song.playing = true;
             }
           };
+
+          /**
+          * @function getSongIndex(song)
+          * @desc Get the song index from currentAlbum
+          * @param {Object}
+          */
+          var getSongIndex = function(song) {
+            return currentAlbum.songs.indexOf(song);
+          };
+
+          SongPlayer.currentSong = null;
           /**@function SongPlayer.play() is "constructor function(?) of this factory service"
           * @desc play song which is clicked.
           */
           SongPlayer.play = function(song) {
+            song = song || SongPlayer.currentSong;
             /** @desc if currentSong is not equal to song which is just clicked, then execute setSong(song)
             * set buzzObject to play and set song.playing property to true */
-            if (currentSong !== song) {
+            if (SongPlayer.currentSong !== song) {
               setSong(song);
               currentBuzzObject.play();
               song.playing = true;
-            /** @desc * else if currentSong equal to the song which is just clicked (means the clicked song is in paused state) 
+            /** @desc * else if currentSong equal to the song which is just clicked (means the clicked song is in paused state)
             * then execute playSong(song) to continue paused song */
-            } else if (currentSong === song) {
+            } else if (SongPlayer.currentSong === song) {
               playSong(song);
             }
           };
           /** @function SongPlayer.pause() is another "constructor function(?)" of this factory service
           * @desc pause the currently playing song and set song.playing to false*/
           SongPlayer.pause = function(song) {
+            song = song || SongPlayer.currentSong;
             currentBuzzObject.pause();
             song.playing = false;
           };
+
+          /**
+          * @function SongPlayer.previous()
+          * @desc Go to the previous song by using song index
+          */
+          SongPlayer.previous = function() {
+            var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            currentSongIndex--;
+
+            if (currentSongIndex < 0) {
+              currentBuzzObject.stop();
+              SongPlayer.currentSong.playing = null;
+            } else {
+              var song = currentAlbum.songs[currentSongIndex];
+              setSong(song);
+              playSong(song);
+            }
+          };
+
           return SongPlayer;
      }
 
      angular
          .module('blocJams')
-         .factory('SongPlayer', SongPlayer);
+         .factory('SongPlayer', ['Fixtures', SongPlayer]);
  })();
