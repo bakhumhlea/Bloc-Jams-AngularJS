@@ -23,10 +23,10 @@
             year: '2017',
             albumArtUrl: '/assets/images/album_covers/20.png',
             songs: [
-              { title: 'Lucas Nord feat.Urban Cone - Let Us Stay Young', duration: '204.00', audioUrl: '/assets/music/Let Us Stay Young.m4a' },
-              { title: 'Two Door Cinema Club - Changing of The Seasons',duration: '223.00', audioUrl: '/assets/music/Changing of the Seasons.m4a' },
-              { title: 'Tahiti80 - Heartbeat', duration: '206.00', audioUrl: '/assets/music/Heartbeat.m4a' },
-              { title: 'Justice - New Lands', duration: '254.00', audioUrl: '/assets/music/New Lands.m4a' }
+              { title: 'Lucas Nord feat.Urban Cone - Let Us Stay Young', duration: '204.96', audioUrl: '/assets/music/Let Us Stay Young.m4a' },
+              { title: 'Two Door Cinema Club - Changing of The Seasons',duration: '223.21', audioUrl: '/assets/music/Changing of the Seasons.m4a' },
+              { title: 'Tahiti80 - Heartbeat', duration: '206.66', audioUrl: '/assets/music/Heartbeat.m4a' },
+              { title: 'Justice - New Lands', duration: '254.56', audioUrl: '/assets/music/New Lands.m4a' }
             ]
          };
 

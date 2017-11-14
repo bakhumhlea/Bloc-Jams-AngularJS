@@ -40,6 +40,12 @@
                     SongPlayer.currentTime = currentBuzzObject.getTime();
                  });
              });
+
+             /**
+             * @desc get song's volume
+             */
+             SongPlayer.currentVolume = currentBuzzObject.getVolume();
+
              /** @desc set the "value(?)" of currentSong var equal to "song(which is clicked)(?)"
              */
              SongPlayer.currentSong = song;
@@ -156,6 +162,12 @@
           SongPlayer.setCurrentTime = function(time) {
             if (currentBuzzObject) {
               currentBuzzObject.setTime(time);
+            }
+          };
+
+          SongPlayer.setCurrentVolume = function(volume) {
+            if (currentBuzzObject) {
+              currentBuzzObject.setVolume(volume);
             }
           };
 
