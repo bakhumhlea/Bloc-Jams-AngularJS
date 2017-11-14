@@ -13,12 +13,22 @@
          templateUrl: '/templates/directives/seek_bar.html',
          replace: true,
          restrict: 'E',
-         scope: { },
+         scope: {
+           onChange: '&'
+         },
          link: function(scope, element, attributes) {
            scope.value = 0;
            scope.max = 100;
 
            var seekBar = $(element);
+
+           attributes.$observe('value', function(newValue) {
+             scope.value = newValue;
+           });
+
+           attributes.$observe('max', function(newValue) {
+             scope.max = newValue;
+           });
 
            var percentString = function () {
                var value = scope.value;
@@ -38,21 +48,32 @@
            scope.onClickSeekBar = function(event) {
                var percent = calculatePercent(seekBar, event);
                scope.value = percent * scope.max;
+               notifyOnChange(scope.value);
            };
 
            scope.trackThumb = function() {
+                /** when hold left click on thumb(ngMousedown on view) execute this method trackThumb()*/
                $document.bind('mousemove.thumb', function(event) {
                   var percent = calculatePercent(seekBar, event);
+                  /** apply value while seeking(even change)*/
                   scope.$apply(function() {
                     scope.value = percent * scope.max;
+                    notifyOnChange(scope.value);
                   });
                 });
-
+                /** bind these 2 function(which is unbind 2 event) when mouseup*/
                 $document.bind('mouseup.thumb', function() {
                   $document.unbind('mousemove.thumb');
                   $document.unbind('mouseup.thumb');
                 });
+                /**mousemove.thumb, mouseup.thumb and mousedown.thumb are buildin method? (or somekind of `event`)*/
             };
+
+           var notifyOnChange = function(newValue) {
+             if (typeof scope.onChange === 'function') {
+               scope.onChange({value: newValue});
+             }
+           };
 
          }
        };
