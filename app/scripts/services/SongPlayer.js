@@ -34,7 +34,7 @@
              currentBuzzObject = new buzz.sound(song.audioUrl, {
                  preload: true
              });
-
+             /***/
              currentBuzzObject.bind('timeupdate', function() {
                  $rootScope.$apply(function() {
                     SongPlayer.currentTime = currentBuzzObject.getTime();
@@ -144,8 +144,9 @@
               song.paused = false;
             }
             currentSongIndex++;
-
-            if (currentSongIndex > currentAlbum.songs.length) {
+            console.log(currentSongIndex);
+            console.log(currentAlbum.songs.length)
+            if (currentSongIndex >= currentAlbum.songs.length) {
               stopSong(song);
             } else {
               var song = currentAlbum.songs[currentSongIndex];
