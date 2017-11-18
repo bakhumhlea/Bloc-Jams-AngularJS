@@ -27,6 +27,7 @@
              if (currentBuzzObject) {
                  currentBuzzObject.stop();
                  SongPlayer.currentSong.playing = null;
+                 SongPlayer.currentSong.paused = null;
              }
              /**
              * @desc set an instsnce of currentBuzzObject by using buzz library call audio file url
@@ -34,10 +35,10 @@
              currentBuzzObject = new buzz.sound(song.audioUrl, {
                  preload: true
              });
-             /***/
+
              currentBuzzObject.bind('timeupdate', function() {
                  $rootScope.$apply(function() {
-                    SongPlayer.currentTime = currentBuzzObject.getTime();
+                    SongPlayer.currentTime = buzz.toTimer(currentBuzzObject.getTime());
                  });
              });
 
@@ -49,6 +50,7 @@
              /** @desc set the "value(?)" of currentSong var equal to "song(which is clicked)(?)"
              */
              SongPlayer.currentSong = song;
+             SongPlayer.duration = buzz.toTimer(song.duration);
 
              /**
              * @desc Current playback time (in seconds) of currently playing song
@@ -91,6 +93,7 @@
           };
 
           SongPlayer.currentSong = null;
+
           /**@function SongPlayer.play() is "constructor function(?) of this factory service"
           * @desc play song which is clicked.
           */
@@ -98,10 +101,12 @@
             song = song || SongPlayer.currentSong;
             /** @desc if currentSong is not equal to song which is just clicked, then execute setSong(song)
             * set buzzObject to play and set song.playing property to true */
-            if (SongPlayer.currentSong !== song) {
+            song.paused = false;
+            if (SongPlayer.currentSong!== song) {
               setSong(song);
               currentBuzzObject.play();
               song.playing = true;
+
             /** @desc * else if currentSong equal to the song which is just clicked (means the clicked song is in paused state)
             * then execute playSong(song) to continue paused song */
             } else if (SongPlayer.currentSong === song) {
