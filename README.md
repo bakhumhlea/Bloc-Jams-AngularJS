@@ -13,6 +13,8 @@ DJ Tatuu Music Player AngularJS is one of three developed projects, using differ
 
 ![](app/assets/images/djTatuu-02.jpg)
 
+![](app/assets/images/djTatuu-03.jpg)
+
 ## Version
 v0.01
 
