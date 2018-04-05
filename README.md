@@ -1,28 +1,20 @@
-# Bloc Jams AngularJS Starter
+# Dj Tatuu Music Player
+A Front-end development project base on HTML5, CSS3 and Javascript with AngularJS framework. Dj Tatuu Music Player is replica of famous music streaming application like Spotify, contain basic music player ability. User can select music album play play-pause song in the lists and skip next/previous song by using player bar at the bottom of the page.
 
-This repository serves as a starter project for Bloc's AngularJS-driven music player app. 
+*Note: This is one of the student projects with [Bloc Inc.](https://www.bloc.io/)*
 
-To get started, [fork](https://help.github.com/articles/fork-a-repo/) this repository. Forking a repository makes a copy and adds it to your own GitHub account. This is an important step, because the your work will need be on your Github account and not Bloc's. 
+## Collection
+DJ Tatuu Music Player AngularJS is one of three developed projects, using different framework and library consist of:
+- [DJ Tatuu JQuery](https://github.com/bakhumhlea/dj-Tatuu-jquery)
+- [DJ Tatuu ReactJS](https://github.com/bakhumhlea/dj-Tatuu-React) and
+- This DJ Tatuu AngularJS
 
-Rename your forked repository to `bloc-jams-angularjs` in Github (available under the **Settings** tab of your repository).
+## Screenshot
 
-Open your terminal, `cd` into your `~/bloc` directory, and clone your repository.
+![](/assets/images/djTatuu-02.jpg)
 
-```bash
-$ cd ~/bloc
-$ git clone https://github.com/{username}/bloc-jams-angularjs.git
-```
+## Version
+v0.01
 
-Make sure to replace `{username}` with your GitHub username.
-
-1. Change into the directory: `$ cd bloc-jams-angularjs`.
-2. Run `$ npm install` to download/install the needed dependencies
-3. Start the node server: `npm start`.
-4. Open a web browser, go to `http://localhost:3000`, and verify that you see the Bloc Jams landing page.
-
-You can press `ctrl + c` at any time to stop the server. 
-
-You'll want to keep the server running whenever you're working on your project. 
-
-
-
+## Demo
+This project is undeployed.
