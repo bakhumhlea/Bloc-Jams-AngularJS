@@ -1,5 +1,5 @@
 # Dj Tatuu Music Player
-A Front-end development project base on HTML5, CSS3 and Javascript with AngularJS framework. Dj Tatuu Music Player is replica of famous music streaming application like Spotify, contain basic music player ability. User can select music album play play-pause song in the lists and skip next/previous song by using player bar at the bottom of the page.
+A Front-end development project base on HTML5, CSS3 and Javascript with AngularJS framework. Dj Tatuu Music Player is replica of famous music streaming application like Spotify, contain basic music player abilities. Users can select music albums, play-pause song in the playlist and skip next/previous song by using player bar at the bottom of the page.
 
 *Note: This is one of the student projects with [Bloc Inc.](https://www.bloc.io/)*
 
